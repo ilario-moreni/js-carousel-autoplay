@@ -103,4 +103,20 @@ function autoplaySlider(){
     } 
 }
 
-setInterval(autoplaySlider, 3000);
+
+let myInterval = setInterval(autoplaySlider, 3000);
+
+/* autplay button */
+
+const autoplayButton = document.getElementById('autoplay-button');
+let autoplayButtonState = true;
+
+autoplayButton.addEventListener('click', function(){
+    if(autoplayButtonState){
+        autoplayButtonState = false;
+        clearInterval(myInterval);
+    } else {
+        autoplayButtonState = true;
+        myInterval = setInterval(autoplaySlider, 3000);
+    }
+})
